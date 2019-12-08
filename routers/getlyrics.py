@@ -16,12 +16,12 @@ async def get_lyrics(id):
     print('url', url)
     # geting the text
     lyricsurl = host + url
-    res = await requests.get(lyricsurl)
-    html = await BeautifulSoup(res.text, features='html.parser')
+    res = requests.get(lyricsurl)
+    html = BeautifulSoup(res.text, features='html.parser')
     print(html.text)
     css = 'div.col-xs-12.col-lg-8.text-center > div:nth-of-type(5)'
     try:
-        lyric = await html.select_one(css).text
+        lyric = html.select_one(css).text
     except:
         lyric = 'lyrics not found'
     print(lyric)
