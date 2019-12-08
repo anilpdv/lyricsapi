@@ -19,11 +19,11 @@ async def search_lyrics(q: str, p: str = '1'):
     lyrics = []
 
     # getting the response
-    res = requests.get(url)
+    res = await requests.get(url)
 
     # loading res.text in to beautiful soup
-    html = BeautifulSoup(res.text, features='html.parser')
-    lyrics_list = html.select('.text-left.visitedlyr')
+    html = await BeautifulSoup(res.text, features='html.parser')
+    lyrics_list = await  html.select('.text-left.visitedlyr')
 
     for l in lyrics_list:
         lyric = {}
