@@ -10,6 +10,7 @@ fastapi = "*"
 requests = "*"
 beautifulsoup4 = "*"
 uvicorn = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.6"
